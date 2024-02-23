@@ -51,12 +51,15 @@
         .teaser-figure {
             text-align: center;
             margin-top: 20px;
-            width: 95%;
-            max-width: 850px;
-            height: auto;
             display: block;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .teaser-figure img {
+            width: 95%;
+            max-width: 850px;
+            height: auto;
         }
 
         .block {
@@ -86,15 +89,18 @@
             height: auto; /* Maintains aspect ratio */
         }
 
-        .video {
+        .video-class {
             text-align: center;
             margin: 20px;
-            width: 90%;
-            max-width: 720px;
-            height: auto;
             display: block;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .video-class video {
+            width: 90%;
+            max-width: 720px;
+            height: auto;
         }
 
         .links {
@@ -199,7 +205,7 @@
         </div>
     </div>
 
-    <div class="video">
+    <div class="video-class">
         <video controls width="720">
             <source src="../assets/CharacterMixer/CharacterMixerTeaserCompressed.mp4" type="video/mp4">
             Your browser does not support the video tag.
