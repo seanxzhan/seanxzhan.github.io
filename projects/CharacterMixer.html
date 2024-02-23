@@ -1,1 +1,199 @@
-CharacterMixer Project Page
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CharacterMixer: Rig-Aware Interpolation of 3D Characters</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Serif';
+            margin: 0 auto; /* This centers the container */
+            max-width: 850px; /* Or any other maximum width */
+            font-size: 0.75rem;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        a {
+            /* font-size: 1rem; */
+            /* // margin-left: 1rem; */
+            text-decoration: none;
+            color: #117bb8;
+
+            &:hover {
+                color: #758c9b;
+            }
+        }
+
+        .header {
+            margin: 20px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .authors {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .venue {
+            margin-top: 5px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .teaser-figure {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .block {
+            margin: 20px;
+        }
+
+        /* .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        } */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            justify-items: center;
+            padding: 20px; /* Adjust padding as needed */
+        }
+
+        .video {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .links {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .citation {
+            margin: 20px;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .links a {
+                display: block;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>CharacterMixer:<br> Rig-Aware Interpolation of 3D Characters</h1>
+    </div>
+
+    <div class="authors">
+        <p>
+            <a href="path/to/paper" target="_blank">Xiao Zhan</a>,
+            <a href="path/to/paper" target="_blank">Rao Fu</a>,
+            <a href="path/to/paper" target="_blank">Daniel Ritchie</a>
+        </p>
+    </div>
+
+    <div class="venue">
+        <p>Eurographics 2024</p>
+    </div>
+
+    <div class="teaser-figure">
+        <img src="../assets/CharacterMixer/TeaserEG.png" alt="Teaser Figure" width="800">
+    </div>
+
+    <div class="block">
+        <h2>Abstract</h2>
+        <p>
+            We present CharacterMixer, a system for blending two rigged 3D characters with different mesh and skeleton
+            topologies while maintaining a rig throughout interpolation.
+            CharacterMixer also enables interpolation during motion for such characters, a novel feature.
+            Interpolation is an important shape editing operation, but prior methods have limitations when applied to
+            rigged characters: they either ignore the rig (making interpolated characters no longer posable) or use a
+            fixed rig and mesh topology.
+            To handle different mesh topologies, CharacterMixer uses a signed distance field (SDF) representation of
+            character shapes, with one SDF per bone.
+            To handle different skeleton topologies, it computes a hierarchical correspondence between source and target
+            character skeletons and interpolates the SDFs of corresponding bones.
+            This correspondence also allows the creation of a single "unified skeleton" for posing and animating
+            interpolated characters.
+            We show that CharacterMixer produces qualitatively better interpolation results than two state-of-the-art
+            methods while preserving a rig throughout interpolation.</p>
+    </div>
+
+    <div class="block">
+        <h3>Interpolation in Rest Pose</h3>
+        <div class="grid">
+            <div><img src="../assets/CharacterMixer/InterpRestPose/16880_16827.gif"></div>
+            <div><img src="../assets/CharacterMixer/InterpRestPose/12852_12901.gif"></div>
+            <div><img src="../assets/CharacterMixer/InterpRestPose/2097_2091.gif"></div>
+            <div><img src="../assets/CharacterMixer/InterpRestPose/432_1299.gif"></div>
+            <div><img src="../assets/CharacterMixer/InterpRestPose/1379_14035.gif"></div>
+            <div><img src="../assets/CharacterMixer/InterpRestPose/4010_1919.gif"></div>
+            <!-- Add more GIFs as needed -->
+        </div>
+    </div>
+
+    <div class="block">
+        <h3>Interpolation During Animation</h3>
+        <div class="grid">
+            <div><img src="../assets/CharacterMixer/InterpAnim/16880_16827_seq_5_vox.gif"></div>
+            <div><img src="../assets/CharacterMixer/InterpAnim/12852_12901_seq_5_vox.gif"></div>
+            <div><img src="../assets/CharacterMixer/InterpAnim/2097_2091_seq_4_vox.gif" ></div>
+            <div><img src="../assets/CharacterMixer/InterpAnim/432_1299_seq_4_vox.gif" ></div>
+            <div><img src="../assets/CharacterMixer/InterpAnim/1379_14035_seq_3_vox.gif"></div>
+            <div><img src="../assets/CharacterMixer/InterpAnim/4010_1919_seq_4_vox.gif"></div>
+            <!-- Add more GIFs as needed -->
+        </div>
+    </div>
+
+    <div class="video">
+        <video width="720" controls>
+            <source src="../assets/CharacterMixer/CharacterMixerTeaserCompressed.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="links">
+        <a href="" target="_blank">Paper</a> • 
+        <a href="" target="_blank">Supplemental</a> •
+        <a href="https://github.com/seanxzhan/CharacterMixer" target="_blank">Code</a>
+    </div>
+
+    <div class="citation">
+        <h2>Citation</h2>
+        <p>Coming soon.</p>
+    </div>
+
+</body>
+
+</html>
